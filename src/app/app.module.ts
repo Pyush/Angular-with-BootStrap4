@@ -13,6 +13,8 @@ import {AboutUsComponent} from "./settings/about-us/about-us.component";
 import {FaqComponent} from "./settings/faq/faq.component";
 import {ContactUsComponent} from "./settings/contact-us/contact-us.component";
 import {PrivacyComponent} from "./settings/privacy/privacy.component";
+import {routing} from "./routes";
+import {BroadcastService} from "./services/broadcast.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import {PrivacyComponent} from "./settings/privacy/privacy.component";
   imports: [
     BrowserModule
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,BroadcastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

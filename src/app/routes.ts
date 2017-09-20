@@ -6,9 +6,9 @@ import {HomeComponent} from "./home/home.component";
  */
 
 export const routes: Routes = [
+
   {path: '', redirectTo: 'home', canActivate: [AuthGuard], pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-
 
   // otherwise redirect to home
   {path: '**', redirectTo: ''}
