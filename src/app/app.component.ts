@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  constructor() {
+    /*let n = 3/0;
+    console.log(n);
+    throw n;*/
+
+    //const error = new Error('BOOM!');
+  }
 }

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
 import {NavigationBarComponent} from "./navigation-bar/navigation-bar.component";
 import {DrawerMenuLeftComponent} from "./drawer-menu-left/drawer-menu-left.component";
@@ -15,6 +15,9 @@ import {ContactUsComponent} from "./settings/contact-us/contact-us.component";
 import {PrivacyComponent} from "./settings/privacy/privacy.component";
 import {routing} from "./routes";
 import {BroadcastService} from "./services/broadcast.service";
+import {GlobalErrorHandler} from "./utils/global-error-handler.service";
+import {LoggingService} from "./services/logging.service";
+import {LocationStrategy, PathLocationStrategy} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -34,7 +37,7 @@ import {BroadcastService} from "./services/broadcast.service";
   imports: [
     BrowserModule
   ],
-  providers: [AuthGuard,BroadcastService],
+  providers: [AuthGuard,BroadcastService,{provide: LocationStrategy, useClass: PathLocationStrategy},LoggingService,{provide: ErrorHandler, useClass: GlobalErrorHandler}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
